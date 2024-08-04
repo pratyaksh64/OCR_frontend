@@ -7,8 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Browse from "./pages/Browse";
 import { Toaster } from "react-hot-toast";
 import SampleForm from "./pages/SampleForm";
+import EditSampleForm from "./pages/EditSampleForm";
 // import { ConfigProvider } from 'antd';
-
 
 const router = createBrowserRouter([
   {
@@ -21,8 +21,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/browse/:licenseNumber",
-    element: <SampleForm />
-  }
+    element: <SampleForm />,
+  },
+  {
+    path: "/edit/:licenseNumber",
+    element: <EditSampleForm />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -35,5 +39,5 @@ root.render(
       <RouterProvider router={router} />
     </div>
     {/* </ConfigProvider> */}
-  </React.StrictMode>
+  </React.StrictMode>,
 );

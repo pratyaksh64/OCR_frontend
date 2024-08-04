@@ -17,7 +17,7 @@ export default function SampleForm() {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `${BASE_URL}/search?number=${getNumberAfterBrowse(location.pathname)}`
+          `${BASE_URL}/search?number=${getNumberAfterBrowse(location.pathname, "browse")}`,
         );
         const sampleForm = response.data;
         if (sampleForm.success && sampleForm.data.length > 0) {
@@ -49,7 +49,9 @@ export default function SampleForm() {
   return (
     <div className="pt-32 mx-16 md:mx-60  xl:mx-96">
       <div className="">
-        <h3 className="text-2xl font-semibold underline underline-offset-1">License Information</h3>
+        <h3 className="text-2xl font-semibold underline underline-offset-1">
+          License Information
+        </h3>
         <div className="flex items-center">
           <div className="mr-2">
             <p className="font-medium text-md">First Name:</p>
@@ -75,7 +77,9 @@ export default function SampleForm() {
       <br />
       <br />
       <div className="">
-        <h3 className="text-2xl font-semibold underline underline-offset-1">Personal Details</h3>
+        <h3 className="text-2xl font-semibold underline underline-offset-1">
+          Personal Details
+        </h3>
         <div className="flex items-center">
           <div className="mr-2">
             <p className="font-medium text-md">Date:</p>
@@ -94,7 +98,9 @@ export default function SampleForm() {
       <br />
       <br />
       <div className="">
-        <h3 className="text-2xl font-semibold underline underline-offset-1">Line Text</h3>
+        <h3 className="text-2xl font-semibold underline underline-offset-1">
+          Line Text
+        </h3>
         <div className="flex items-center">
           <div className="mr-2">
             <p className="font-medium text-md">Handwriting Text 1:</p>
@@ -110,7 +116,9 @@ export default function SampleForm() {
       <br />
       <br />
       <div className="">
-        <h3 className="text-2xl font-semibold underline underline-offset-1">Paragraph Text</h3>
+        <h3 className="text-2xl font-semibold underline underline-offset-1">
+          Paragraph Text
+        </h3>
         <div className="flex ">
           <div className="mr-2">
             <p className="font-medium text-md">Handwritten Paragraph:</p>
@@ -123,7 +131,9 @@ export default function SampleForm() {
       <br />
       <br />
       <div className="">
-        <h3 className="text-2xl font-semibold underline underline-offset-1">Numerical Text</h3>
+        <h3 className="text-2xl font-semibold underline underline-offset-1">
+          Numerical Text
+        </h3>
         <div className="flex ">
           <div className="mr-2">
             {Object.keys(requiredForm.numerical_parser).map((title) => {
@@ -150,7 +160,9 @@ export default function SampleForm() {
       <br />
       <br />
       <div className="">
-        <h3 className="text-2xl font-semibold underline underline-offset-1">Long Numerical Text</h3>
+        <h3 className="text-2xl font-semibold underline underline-offset-1">
+          Long Numerical Text
+        </h3>
         <div className="flex ">
           <div className="mr-2">
             {Object.keys(requiredForm.numerical_parser_2).map((title) => {
@@ -168,7 +180,9 @@ export default function SampleForm() {
           </div>
           <div>
             {Object.keys(requiredForm.numerical_parser_2).map((title) => {
-              return <p className="">{requiredForm.numerical_parser_2[title]}</p>;
+              return (
+                <p className="">{requiredForm.numerical_parser_2[title]}</p>
+              );
             })}
           </div>
         </div>
@@ -176,11 +190,3 @@ export default function SampleForm() {
     </div>
   );
 }
-/**
- * 1. License Details
- * 2. Personal Details
- * 3. Line Text Parser (Line Text)
- * 4. Paragraph Text
- * 5. Numerical Text
- * 6. Numerical Text 2
- */
